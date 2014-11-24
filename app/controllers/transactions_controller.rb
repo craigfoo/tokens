@@ -29,7 +29,7 @@ class TransactionsController < ApplicationController
     elsif @transaction.take_give == false && @init_user.token_bal < @transaction.quantity
       redirect_to(new_transaction_path, notice: 'You can only take as many as you have!')
     elsif @transaction.take_give == false && @init_user.token_ratio < 0.25
-        redirect_to(new_transaction_path, notice: 'You can only take as many as you have!')
+      redirect_to(new_transaction_path, notice: 'You can only take tokens when you have a ratio of 0.25 or higher!')
     elsif @transaction.valid?
         if @transaction.take_give == true
           @joke_user.token_bal += @transaction.quantity
