@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    
+    <title>Tokens</title>
+    <%= stylesheet_link_tag('application', :media => 'all') %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, 'endless page' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+  	<div class="container">
+  	<% flash.each do |name, msg| %>
+  		<%= content_tag(:div, msg, class: "alert alert-success") %>
+  	<% end %>
+      	<%= yield %>
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<%= link_to "Home", root_path %>
+<% if user_signed_in? %>
+    <%= render 'layouts/tokens' %>
+<% else %>
+    <%= render 'layouts/intro' %>
+<% end %>
+
+
+<div class="container text-center">
+  <div class="row">
+  	
+	<h2><%= @user.username %>'s History</h2>
+	<h4>(Balance: <%= @user.token_bal %>, Given: <%= @user.given %>, Taken: <%= @user.taken %>, Ratio: <%= number_with_precision(@user.token_ratio, precision: 2) %>)</h4>
+  </div>
+
+
+	<% if @transactions.blank? %>
+		<h3>No Love...</h3>
+	<% else %>
+	<%= will_paginate @transactions, :page_links => false %>
+	<div class="panel panel-default">
+		<div class="table-responsive">
+			<table id="transactions-table" class="table table-hover">
+			  	<% @transactions.each do |t| %>
+				    <tr>
+				    	<td id="date"><%= t.created_at.strftime("%b %d, %Y at %H:%M:%S %Z") %></td>
+						<td id="user-transaction-info">
+							<%= link_to(t.init_user.username, transactions_path({:user_id => t.init_user.id})) if t.init_user %>
+							<% if t.take_give == true %>
+								 gave
+							<% else %>
+								  took
+							<% end %>
+
+							<%= pluralize(t.quantity, "Token") %>
+
+							<% if t.take_give == true %>
+								 to 
+							<% else %>
+								 from 
+							<% end %>
+
+							<%= link_to(t.joke_user.username, transactions_path({:user_id => t.joke_user.id})) if t.joke_user %>
+						</td>
+						<td id="comment"><%= t.comment %></td>
+				    </tr>
+			    <% end %>
+		  	</table>
+		</div>
+	<% end %>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+
+<div class="container text-center jumbotron">  
+	<h1>Token Balance: <%= pluralize(current_user.token_bal, "Token") %></h1>
+	<h4>(Given: <%= current_user.given %>, Taken: <%= current_user.taken %>, Ratio: <%= number_with_precision(current_user.token_ratio, precision: 2) %>)</h4>
+	
+	<% if current_user.token_bal < 5 %>
+		<h3>Step up your game, you started with 5 for Pete's sake!</h3>
+	<% elsif current_user.token_bal >= 5 && current_user.token_bal < 8 %>
+		<h3>Here, <%= link_to("www.jokes.com", "http://www.jokes.com") %></h3>
+	<% elsif current_user.token_bal >= 8 %>
+		<h3>Killin' it.</h3>
+	<% end %>
+</div>

@@ -1,0 +1,15 @@
+<%= render 'layouts/tokens' %>
+
+  <h2>What To Do?</h2>
+
+  <%= form_for(:transaction, :url => {:action => 'create'}) do |f| %>
+	<%= transaction_error_messages(@transaction) %>
+
+    <%= render(:partial => "form", :locals => {:foo => f}) %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Create Transaction", class: "btn btn-primary btn-lg") %>
+      <%= link_to "Cancel", :back, class: "btn btn-secondary btn-lg" %>
+    </div>
+
+  <% end %>

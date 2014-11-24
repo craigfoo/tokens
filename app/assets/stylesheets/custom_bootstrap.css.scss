@@ -1,0 +1,47 @@
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.eot"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.svg"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.ttf"
+//= depend_on_asset "bootstrap/glyphicons-halflings-regular.woff"
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+$font-family-sans-serif:		'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$navbar-height:             	70px;
+$navbar-default-bg:         	white;
+$navbar-default-brand-color:	#e67e22;
+$brand-primary:             	#e67e22;
+$font-size-base: 18px;
+$font-size-h1: floor(($font-size-base * 5));
+
+$body-bg: #FFFFFF;
+$navbar-default-link-color: #999999;
+$navbar-default-link-hover-color: #e67e22;
+$navbar-default-border: darken($navbar-default-bg, 15%);
+
+$table-cell-padding: 15px;
+$table-bg-hover: #EBEBEB;
+
+$state-success-bg: #FAE5D3;
+$state-success-text: #3A2008;
+
+$panel-default-heading-bg: #EBEBEB;
+$panel-footer-bg: #EBEBEB;
+
+@import "bootstrap";
+
+.navbar-brand {
+     font-weight: bold;
+}
+
+h2 {
+	color: #e67e22
+}
+
+table td {
+	font-size: 20px;
+	text-align: left;
+}
+
+.panel {
+	margin-bottom: 25px;
+}

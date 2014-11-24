@@ -1,0 +1,28 @@
+<div class="subjects delete">
+  <h2>Delete Subject</h2>
+
+  <%= form_for(:transaction, :url => {:action => 'destroy', :id => @transaction.id}) do |f| %>
+
+    <p>Are you sure you want to permanently delete this transaction?</p>
+
+      <th>Quantity</th>
+      <th>Take/Give</th>
+      <th>From User</th>
+      <th>To User</th>
+      <th>Comment</th>
+    </tr>
+    <% @transactions.each do |t| %>
+    <tr class="<%= cycle('odd', 'even') %>">
+      <td><%= t.quantity %></td>
+      <td class="center"><%= t.take_give %></td>
+      <td class="center"><%= t.from_user_id %></td>
+      <td class="center"><%= t.to_user_id %></td>
+      <td class="center"><%= t.comment %></td>
+
+    <div class="form-buttons">
+      <%= submit_tag("Delete Subject") %>
+    </div>
+
+  <% end %>
+</div>
+
